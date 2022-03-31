@@ -10,7 +10,7 @@ public class basicCommands {
     public static void main(String[] args) throws IOException {
         File dir = new File(System.getProperty("user.home"));
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        new ProcessBuilder(new String[0]);
+        ProcessBuilder PB = new ProcessBuilder();
         String[] Pathnames = dir.list();
 
         while(true) {
@@ -18,12 +18,11 @@ public class basicCommands {
                 System.out.print(dir + " Prompt$ ");
                 String Commandline = br.readLine();
                 if (!Commandline.equals("")) {
-                    if (Commandline.contains("ls")) {
-                        String[] var6 = Pathnames;
-                        int var7 = Pathnames.length;
 
-                        for(int var8 = 0; var8 < var7; ++var8) {
-                            String pathnames = var6[var8];
+
+
+                    if (Commandline.contains("ls")) {
+                        for (String pathnames: Pathnames){
                             System.out.println(pathnames);
                         }
                     }
