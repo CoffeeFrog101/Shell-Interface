@@ -11,7 +11,7 @@ public class basicCommands {
 
 
 
-        File dir = new File(System.getProperty("user.home"));
+        File dir = new File(System.getProperty("user.dir"));//dir for the
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         ProcessBuilder PB = new ProcessBuilder();
@@ -41,17 +41,17 @@ public class basicCommands {
                     System.out.println("mkdir --Creates a new directory\n ");
                     System.out.println("rmdir --Removes a directory\n ");
                     System.out.println("ps -Report a snapshot of the current processes \n");
-                    System.out.println("which --List the current directory \n");
-                    System.out.println("move --Lists the current directory \n");
+                    System.out.println("which -Shows the location of a command \n");
+                    System.out.println("move --Move a file from source to target destination \n");
                     System.out.println("help --shows the commands\n");
                     System.out.println("showDir --Show the current directory \n");
                     System.out.println("whoAmI -Shows the current username \n");
-                    System.out.println("move --Copy file from src to target \n");
-                    System.out.println("cd --Change the current directory \n");
+                    System.out.println("copy --Copy file from src to target \n");
+
                 }
                 if (CommandLine.contains("showDir")) {
                     File current = new File(System.getProperty("user.dir"));
-                    PB.directory(current);
+
                     System.out.println(current);
 
 
@@ -65,11 +65,11 @@ public class basicCommands {
                     {
 
                         mv.delete();
-                        System.out.println("File moved successfully");
+                        System.out.println("File moved !!");
                     }
                     else
                     {
-                        System.out.println("Failed to move the file");
+                        System.out.println("Failed to move this file");
                     }
                 }
 
@@ -80,11 +80,11 @@ public class basicCommands {
                     if(cp.renameTo
                             (new File("/Users/ziadahmed/System-software/target")))
                     {
-                        System.out.println("File moved successfully");
+                        System.out.println("File copied !!");
                     }
                     else
                     {
-                        System.out.println("Failed to move the file");
+                        System.out.println("Failed to copy the file");
                     }
                 }
 
@@ -105,6 +105,7 @@ public class basicCommands {
                 PB.command(my_commands);
                 // all commands typed will be stored in an array
                 Process pro = PB.start();
+                //inspired by lab 5
                 BufferedReader bro = new BufferedReader(new InputStreamReader(pro.getInputStream()));
 
                 String l;
