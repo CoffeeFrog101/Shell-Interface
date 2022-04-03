@@ -25,7 +25,7 @@ public class basicCommands {
 
             System.out.print(dir + " Prompt$ ");
             CommandLine = br.readLine();
-            String[] mycommands = CommandLine.split(" ");//stores all commands
+            String[] my_commands = CommandLine.split(" ");//stores all commands
             if (CommandLine.equals("")) {// so it can continue when the user press enter
                 continue;
             }
@@ -42,7 +42,7 @@ public class basicCommands {
                     System.out.println("rmdir --Removes a directory\n ");
                     System.out.println("ps -Report a snapshot of the current processes \n");
                     System.out.println("which --List the current directory \n");
-                    System.out.println("mv --Lists the current directory \n");
+                    System.out.println("move --Lists the current directory \n");
                     System.out.println("help --shows the commands\n");
                     System.out.println("showDir --Show the current directory \n");
                     System.out.println("whoAmI -Shows the current username \n");
@@ -71,9 +71,25 @@ public class basicCommands {
                     {
                         System.out.println("Failed to move the file");
                     }
-
-
                 }
+
+                if (CommandLine.contains("copy")){
+                    File cp = new File("/Users/ziadahmed/System-software/src/main/java");
+
+                    // renaming the file and moving it to a new location
+                    if(cp.renameTo
+                            (new File("/Users/ziadahmed/System-software/target")))
+                    {
+                        System.out.println("File moved successfully");
+                    }
+                    else
+                    {
+                        System.out.println("Failed to move the file");
+                    }
+                }
+
+
+
 
                 if (CommandLine.contains("whoAmI")) {
 
@@ -86,7 +102,7 @@ public class basicCommands {
 
 
 
-                PB.command(mycommands);
+                PB.command(my_commands);
                 // all commands typed will be stored in an array
                 Process pro = PB.start();
                 BufferedReader bro = new BufferedReader(new InputStreamReader(pro.getInputStream()));
