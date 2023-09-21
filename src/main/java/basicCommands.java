@@ -37,7 +37,7 @@ public class basicCommands {
 
                 }
                 if (CommandLine.contains("help")) {
-                    System.out.println("ls --List the current directory \n");
+                    System.out.println("ls --List the current! directory \n");
                     System.out.println("mkdir --Creates a new directory\n ");
                     System.out.println("rmdir --Removes a directory\n ");
                     System.out.println("ps -Report a snapshot of the current processes \n");
